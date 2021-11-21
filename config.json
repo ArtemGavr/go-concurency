@@ -1,0 +1,11 @@
+{
+  "app_name": "api",
+  "listen_url": ":8080",
+  "postgres": {
+    "host": "localhost",
+    "port": "5432",
+    "database": "manager",
+    "user": "postgres",
+    "password": "12345"
+  }
+}

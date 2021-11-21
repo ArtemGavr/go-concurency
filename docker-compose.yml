@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  management_db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "12345"
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: "5432"
+      POSTGRES_DB: manager
+
+  task-management:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - management_db
+    restart: unless-stopped
+    volumes:
+      - ./config.json:/config.json
